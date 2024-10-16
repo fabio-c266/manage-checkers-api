@@ -21,7 +21,7 @@ public class Championship {
     private int maxPlayers;
     private int minPoints;
 
-    private Administrator createdBy;
+    //private Administrator createdBy;
 
     private Date endSubscriptions;
     private Date startedAt;
