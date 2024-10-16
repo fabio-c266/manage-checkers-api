@@ -40,6 +40,7 @@ public class UserPlayerController {
 	@PostMapping
 	public ResponseEntity<UserPlayer> create(@RequestBody UserPlayerForm form) {
 		UserPlayer userPlayer= form.converter();
+		System.out.println(userPlayer.toString());
 		
 		playerRepository.save(userPlayer);
 		
