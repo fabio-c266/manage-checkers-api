@@ -1,5 +1,6 @@
 package com.trabalhoundb.manage.checkers.api.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -30,15 +31,20 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class UserPlayer {
+public class UserPlayer implements Serializable{
+    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private GenderTypes gender;
+    //@Enumerated(EnumType.STRING)
+    //private GenderTypes gender;
 
+    @Column(name = "gender", nullable = false)
+    private String gender;
+    
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -46,7 +52,7 @@ public class UserPlayer {
     private String username;
 
     @Column(name = "cpf", unique = true, nullable = false, length = 11)
-    private String CPF;
+    private String cpf;
 
     @Column(name = "phone", unique = true, nullable = false, length = 11)
     private String phone;
@@ -57,7 +63,7 @@ public class UserPlayer {
     @Column(name = "password_hashed", nullable = false)
     private String passwordHashed;
 
-    @Column(name = "points", nullable = false)
+    @Column(name = "points")
     private Long points;
     
     @Column(name = "winners")
@@ -74,7 +80,9 @@ public class UserPlayer {
     @CreatedDate
     private Date createdAt;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_address_id", referencedColumnName = "id",unique = true, nullable = false)
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_address_id", referencedColumnName = "id",unique = true)
     private Address address;
+    
+    
 }
