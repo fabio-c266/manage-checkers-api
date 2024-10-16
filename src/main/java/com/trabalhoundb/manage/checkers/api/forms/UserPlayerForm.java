@@ -3,6 +3,7 @@ package com.trabalhoundb.manage.checkers.api.forms;
 import java.util.Date;
 
 import com.trabalhoundb.manage.checkers.api.entities.UserPlayer;
+import com.trabalhoundb.manage.checkers.api.enums.GenderTypes;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -20,7 +21,7 @@ public class UserPlayerForm {
 	@NotNull @NotEmpty
 	private String name;
 	@NotNull
-	private String gender;
+	private GenderTypes gender;
 	
 	@NotNull @NotEmpty
 	private String username;

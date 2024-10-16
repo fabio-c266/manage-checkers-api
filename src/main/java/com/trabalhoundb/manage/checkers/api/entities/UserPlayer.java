@@ -24,6 +24,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "userPlayer")
@@ -31,6 +32,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@ToString
 public class UserPlayer implements Serializable{
     private static final long serialVersionUID = 1L;
     
@@ -39,11 +41,11 @@ public class UserPlayer implements Serializable{
     @Column(name = "id")
     private Long id;
 
-    //@Enumerated(EnumType.STRING)
-    //private GenderTypes gender;
+    @Enumerated(EnumType.STRING)
+    private GenderTypes gender;
 
-    @Column(name = "gender", nullable = false)
-    private String gender;
+    //@Column(name = "gender", nullable = false)
+    //private String gender;
     
     @Column(name = "name", nullable = false)
     private String name;

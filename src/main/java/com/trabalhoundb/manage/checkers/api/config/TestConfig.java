@@ -46,10 +46,10 @@ public class TestConfig implements CommandLineRunner{
 	        cityRepository.save(rioDeJaneiro);
 
 	        // Criando jogadores
-	        // GenderTypes.M  GenderTypes.F
-	        UserPlayer player1 = new UserPlayer(null, "M", "João Silva", "joaosilva", "12345678900", "11987654321", 
+	        // 
+	        UserPlayer player1 = new UserPlayer(null, GenderTypes.M, "João Silva", "joaosilva", "12345678900", "11987654321", 
 	                        "joao@example.com", "hashedPassword", 0L, 0L, 0L, true, new Date(), null);
-	        UserPlayer player2 = new UserPlayer(null, "F", "Maria Souza", "mariasouza", "98765432100", "21987654321", 
+	        UserPlayer player2 = new UserPlayer(null, GenderTypes.F, "Maria Souza", "mariasouza", "98765432100", "21987654321", 
 	                        "maria@example.com", "hashedPassword", 0L, 0L, 0L, true, new Date(), null);
 	        userPlayerRepository.save(player1);
 	        userPlayerRepository.save(player2);
