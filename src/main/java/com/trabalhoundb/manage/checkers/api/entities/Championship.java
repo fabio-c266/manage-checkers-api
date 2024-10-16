@@ -20,7 +20,12 @@ public class Championship {
     private String description;
     private int maxPlayers;
     private int minPoints;
+
     private Administrator createdBy;
+
+    private Date endSubscriptions;
+    private Date startedAt;
+    private Date endedAt;
 
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
