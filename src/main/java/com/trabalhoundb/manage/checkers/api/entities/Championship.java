@@ -20,6 +20,7 @@ public class Championship {
     private String description;
     private int maxPlayers;
     private int minPoints;
+    private Double registrationFee;
 
     //private Administrator createdBy;
 
@@ -31,4 +32,24 @@ public class Championship {
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     private Date createdAt;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private UserPlayer userPlayer;
+
+	public Championship(String name, String description, int maxPlayers, int minPoints, Double registrationFee,
+			Date endSubscriptions, Date startedAt, Date endedAt, UserPlayer userPlayer) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.maxPlayers = maxPlayers;
+		this.minPoints = minPoints;
+		this.registrationFee = registrationFee;
+		this.endSubscriptions = endSubscriptions;
+		this.startedAt = startedAt;
+		this.endedAt = endedAt;
+		this.userPlayer = userPlayer;
+	}
+    
+    
 }

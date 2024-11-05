@@ -11,6 +11,7 @@ import com.trabalhoundb.manage.checkers.api.entities.City;
 import com.trabalhoundb.manage.checkers.api.entities.State;
 import com.trabalhoundb.manage.checkers.api.entities.UserPlayer;
 import com.trabalhoundb.manage.checkers.api.enums.GenderTypes;
+import com.trabalhoundb.manage.checkers.api.enums.Rule;
 import com.trabalhoundb.manage.checkers.api.repositories.AddressRepository;
 import com.trabalhoundb.manage.checkers.api.repositories.CityRepository;
 import com.trabalhoundb.manage.checkers.api.repositories.StateRepository;
@@ -47,10 +48,25 @@ public class TestConfig implements CommandLineRunner{
 
 	        // Criando jogadores
 	        // 
-	        UserPlayer player1 = new UserPlayer(null, GenderTypes.M, "João Silva", "joaosilva", "12345678900", "11987654321", 
-	                        "joao@example.com", "hashedPassword", 0L, 0L, 0L, true, new Date(), null);
-	        UserPlayer player2 = new UserPlayer(null, GenderTypes.F, "Maria Souza", "mariasouza", "98765432100", "21987654321", 
-	                        "maria@example.com", "hashedPassword", 0L, 0L, 0L, true, new Date(), null);
+	        UserPlayer player1 = new UserPlayer(
+	        		null, Rule.ADMIN, 
+	        		GenderTypes.M, "João Silva", 
+	        		"joaosilva", "12345678900", 
+	        		"11987654321", "joao@example.com", 
+	        		"hashedPassword", 0L, 
+	        		0L, 0L, 
+	        		true, new Date(), 
+	        		null, null);
+	        
+	        UserPlayer player2 = new UserPlayer(
+	        		null, Rule.USER, 
+	        		GenderTypes.F, "Maria Souza", 
+	        		"mariasouza", "98765432100", 
+	        		"21987654321", "maria@example.com", 
+	        		"hashedPassword", 0L, 
+	        		0L, 0L, 
+	        		true, new Date(), 
+	        		null, null);
 	        userPlayerRepository.save(player1);
 	        userPlayerRepository.save(player2);
 	        

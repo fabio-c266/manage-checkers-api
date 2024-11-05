@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.trabalhoundb.manage.checkers.api.entities.UserPlayer;
 import com.trabalhoundb.manage.checkers.api.enums.GenderTypes;
+import com.trabalhoundb.manage.checkers.api.enums.Rule;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -20,6 +21,10 @@ public class UserPlayerForm {
 	
 	@NotNull @NotEmpty
 	private String name;
+	
+	@NotNull
+	private Rule rule;
+	
 	@NotNull
 	private GenderTypes gender;
 	
@@ -39,7 +44,7 @@ public class UserPlayerForm {
 	private String password;
 	
 	public UserPlayer converter() {
-		return new UserPlayer(null, gender, name, username, cpf, phone, email, password, null, null, null, true, new Date(), null);
+		return new UserPlayer(null, rule, gender, name, username, cpf, phone, email, password, null, null, null, true, new Date(), null, null);
 	}
 
 }

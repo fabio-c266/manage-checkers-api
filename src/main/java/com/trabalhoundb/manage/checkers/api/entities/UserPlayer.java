@@ -2,10 +2,13 @@ package com.trabalhoundb.manage.checkers.api.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.CreatedDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.trabalhoundb.manage.checkers.api.enums.GenderTypes;
+import com.trabalhoundb.manage.checkers.api.enums.Rule;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,6 +19,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -40,6 +44,9 @@ public class UserPlayer implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    
+    @Enumerated(EnumType.STRING)
+    private Rule rule;
 
     @Enumerated(EnumType.STRING)
     private GenderTypes gender;
@@ -85,6 +92,10 @@ public class UserPlayer implements Serializable{
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_address_id", referencedColumnName = "id",unique = true)
     private Address address;
+    
+    @JsonIgnore
+    @OneToMany(mappedBy = "userPlayer")
+    private List<Championship> championships;
     
     
 }
