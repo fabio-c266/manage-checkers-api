@@ -1,16 +1,17 @@
 package com.trabalhoundb.manage.checkers.api.infra.security;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.trabalhoundb.manage.checkers.api.entities.Administrator;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-
-import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+import com.trabalhoundb.manage.checkers.api.entities.UserPlayer;
 
 @Service
 public class TokenService {
@@ -19,7 +20,7 @@ public class TokenService {
 
     private final String ISSUER = "auth-api";
 
-    public String generateToken(Administrator administrator) {
+    public String generateToken(UserPlayer administrator) {
         try {
             return JWT
                     .create()

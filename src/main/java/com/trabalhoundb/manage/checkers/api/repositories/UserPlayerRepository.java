@@ -11,5 +11,6 @@ import com.trabalhoundb.manage.checkers.api.entities.UserPlayer;
 public interface UserPlayerRepository extends JpaRepository<UserPlayer, Long>{
 	
 	List<UserPlayer> findByNameContainingIgnoreCase(String name);
+	UserPlayer findByEmail(String email);
 
 }
