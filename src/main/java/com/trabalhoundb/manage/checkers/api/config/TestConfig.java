@@ -53,7 +53,7 @@ public class TestConfig implements CommandLineRunner{
 	        		GenderTypes.M, "João Silva", 
 	        		"joaosilva", "12345678900", 
 	        		"11987654321", "joao@example.com", 
-	        		"hashedPassword", 0L, 
+	        		"123456", 0L, 
 	        		0L, 0L, 
 	        		true, new Date(), 
 	        		null, null);
